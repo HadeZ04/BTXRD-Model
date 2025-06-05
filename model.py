@@ -1,8 +1,7 @@
 
 import numpy as np
 import cv2
-import tensorflow as tf
-tflite = tf.lite
+import tflite_micro_runtime.interpreter as tflite
 
 class Model(object):
     def __init__(self, model_path, conf_thresh=0.25, iou_thresh=0.5):
