@@ -7,9 +7,9 @@ import numpy as np
 
 if __name__ == "__main__":
     #ONLY CHANGE 5 LINES
-    data_path = '/content/BTXRD' #path to dataset
+    data_path = '/home/pi/BTXRD-Model/BTXRD'
     nc = 9 #number of class
-    path_to_model = "/content/best_int8.tflite" #path to model
+    path_to_model = "/home/pi/best_int8.tflite" #path to model
     model = Model(model_path=path_to_model)
     dataset_name = "btxrd" #must be one of these names:  "btxrd", "rip current", "trashcan"
     #
