@@ -58,11 +58,9 @@ yolo8segmentbonetumor.ipynb
 Bạn có thể thêm hình minh họa kết quả segmentation sau khi huấn luyện tại đây:
 
 ### 📌 Hình minh họa:
-| Ground Truth | Dự đoán YOLOv8 |
-|--------------|----------------|
-| ![](![IMG000234](https://github.com/user-attachments/assets/e21e5b6e-75eb-488b-a820-7eabc20b7135)
-) | ![](![IMG000164](https://github.com/user-attachments/assets/782e2005-27a3-444a-8131-24e0c0b5ac2e)
-) |
+
+| ![](https://github.com/user-attachments/assets/e21e5b6e-75eb-488b-a820-7eabc20b7135/IMG000234) | ![](https://github.com/user-attachments/assets/782e2005-27a3-444a-8131-24e0c0b5ac2e/IMG000164) |
+
 
 ---
 
