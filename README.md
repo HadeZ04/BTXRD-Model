@@ -1,5 +1,32 @@
 
 # 🦴 YOLOv8 Bone Tumor Segmentation
+## 🗂️ Tập dữ liệu BTXRD
+
+### 📌 Giới thiệu:
+
+- **BTXRD (Bone Tumor X-ray Dataset)** là một tập dữ liệu ảnh X-quang dùng cho bài toán phân đoạn vùng u xương.
+- Dữ liệu bao gồm các ảnh chụp X-quang và các annotation dạng polygon tương ứng với vùng có khối u.
+
+### 📁 Cấu trúc thư mục:
+
+```
+BTXRD/
+├── images/            # Ảnh X-quang (.jpg/.png)
+└── Annotations/       # Annotation dạng polygon (.json)
+```
+
+### 📌 Đặc điểm:
+
+- Mỗi ảnh có một file `.json` chứa thông tin các vùng u dạng polygon.
+- Annotation cần được chuyển đổi sang định dạng mask rồi sang YOLO format để huấn luyện mô hình segmentation.
+- Có thể kết hợp với thư viện `shapely` và `albumentations` để xử lý và augment dữ liệu hiệu quả.
+
+### ⚠️ Lưu ý:
+
+- Ảnh cần resize về kích thước phù hợp (thường là 640x640 hoặc 512x512).
+- Các file annotation phải được đồng bộ chính xác với tên file ảnh.
+
+---
 
 ## 📦 I. Danh sách thư viện cần thiết
 
@@ -58,10 +85,9 @@ yolo8segmentbonetumor.ipynb
 Bạn có thể thêm hình minh họa kết quả segmentation sau khi huấn luyện tại đây:
 
 ### 📌 Hình minh họa:
-
-| ![IMG000164](https://github.com/user-attachments/assets/3e7b18fb-386d-4688-9b95-949d67479142)
- |![IMG000234](https://github.com/user-attachments/assets/68fef4db-91e6-4c6c-b34e-7ac3f9db65ad)
- |
+![IMG000164](https://github.com/user-attachments/assets/3e7b18fb-386d-4688-9b95-949d67479142)
+![IMG000234](https://github.com/user-attachments/assets/68fef4db-91e6-4c6c-b34e-7ac3f9db65ad)
+ 
 
 
 ---
@@ -76,31 +102,4 @@ Bạn có thể thêm hình minh họa kết quả segmentation sau khi huấn l
 
 ---
 
-## 🗂️ V. Tập dữ liệu BTXRD
-
-### 📌 Giới thiệu:
-
-- **BTXRD (Bone Tumor X-ray Dataset)** là một tập dữ liệu ảnh X-quang dùng cho bài toán phân đoạn vùng u xương.
-- Dữ liệu bao gồm các ảnh chụp X-quang và các annotation dạng polygon tương ứng với vùng có khối u.
-
-### 📁 Cấu trúc thư mục:
-
-```
-BTXRD/
-├── images/            # Ảnh X-quang (.jpg/.png)
-└── Annotations/       # Annotation dạng polygon (.json)
-```
-
-### 📌 Đặc điểm:
-
-- Mỗi ảnh có một file `.json` chứa thông tin các vùng u dạng polygon.
-- Annotation cần được chuyển đổi sang định dạng mask rồi sang YOLO format để huấn luyện mô hình segmentation.
-- Có thể kết hợp với thư viện `shapely` và `albumentations` để xử lý và augment dữ liệu hiệu quả.
-
-### ⚠️ Lưu ý:
-
-- Ảnh cần resize về kích thước phù hợp (thường là 640x640 hoặc 512x512).
-- Các file annotation phải được đồng bộ chính xác với tên file ảnh.
-
----
 
