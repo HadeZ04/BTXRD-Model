@@ -1,48 +1,106 @@
 
-README - Huấn luyện phân đoạn u xương bằng YOLOv8
+# 🦴 YOLOv8 Bone Tumor Segmentation
 
-I. Danh sách thư viện cần thiết
--------------------------------
+## 📦 I. Danh sách thư viện cần thiết
+
 Dự án sử dụng các thư viện chính sau:
 
-- ultralytics
-- opencv-python
-- albumentations
-- numpy
-- matplotlib
-- tqdm
-- shapely
-- glob
-- os, shutil, json (thư viện chuẩn của Python)
+- `ultralytics` – Huấn luyện và inference YOLOv8
+- `opencv-python` – Xử lý ảnh
+- `albumentations` – Tăng cường dữ liệu
+- `numpy` – Tính toán ma trận
+- `matplotlib` – Vẽ biểu đồ, trực quan hóa ảnh
+- `tqdm` – Hiển thị tiến trình huấn luyện
+- `shapely` – Xử lý polygon annotation
+- `glob`, `os`, `shutil`, `json` – Thư viện chuẩn Python
 
-II. Hướng dẫn cài đặt thư viện và thiết lập môi trường
--------------------------------------------------------
+---
 
- Cài đặt các thư viện cần thiết:
+## ⚙️ II. Cài đặt môi trường và thư viện
 
-    pip install -r requirements.txt
+### 1. Cài đặt bằng file `requirements.txt`
+```bash
+pip install -r requirements.txt
+```
 
-Nếu không có file `requirements.txt`, có thể cài đặt thủ công:
+### 2. Hoặc cài đặt thủ công:
+```bash
+pip install ultralytics opencv-python albumentations numpy matplotlib tqdm shapely
+```
 
-    pip install ultralytics opencv-python albumentations numpy matplotlib tqdm shapely
+---
 
-III. Hướng dẫn chạy lại quá trình huấn luyện
---------------------------------------------
+## 🧠 III. Hướng dẫn huấn luyện lại mô hình YOLOv8
 
-1. Mở tập tin notebook:
+### 1. Mở tập tin notebook:
+```bash
+yolo8segmentbonetumor.ipynb
+```
 
-    yolo8segmentbonetumor.ipynb
+### 2. Cấu trúc thư mục dữ liệu (trong Google Colab hoặc local):
+```
+/content/BTXRD/
+├── images/            # Ảnh X-quang
+└── Annotations/       # File polygon (json)
+```
 
-2. Đảm bảo cấu trúc thư mục dữ liệu đúng như sau:
+### 3. Chạy lần lượt các ô (cell) trong notebook gồm các bước:
 
-    /content/BTXRD/images  
-    /content/BTXRD/Annotations
+- ✅ Tiền xử lý dữ liệu
+- 🔄 Chuyển đổi polygon → mask → YOLO format
+- 📈 Tăng cường dữ liệu (Augmentation)
+- 🔧 Thiết lập và huấn luyện mô hình YOLOv8 segmentation
 
-3. Chạy tuần tự các ô (cell) trong notebook. Quá trình huấn luyện bao gồm:
+---
 
-    - Tiền xử lý dữ liệu
-    - Chuyển polygon sang mask + định dạng YOLO
-    - Tăng cường dữ liệu (augmentation)
-    - Thiết lập và huấn luyện mô hình YOLOv8
+## 📊 IV. Kết quả huấn luyện (Ví dụ minh họa)
 
+Bạn có thể thêm hình minh họa kết quả segmentation sau khi huấn luyện tại đây:
+
+### 📌 Hình minh họa:
+| Ground Truth | Dự đoán YOLOv8 |
+|--------------|----------------|
+| ![](![IMG000234](https://github.com/user-attachments/assets/e21e5b6e-75eb-488b-a820-7eabc20b7135)
+) | ![](![IMG000164](https://github.com/user-attachments/assets/782e2005-27a3-444a-8131-24e0c0b5ac2e)
+) |
+
+---
+
+## 📝 Ghi chú
+
+- Mô hình sử dụng YOLOv8 segmentation để phân đoạn vùng u xương trên ảnh X-quang.
+- Dữ liệu annotation gốc ở dạng polygon, được xử lý để tạo ra mask và bounding box tương ứng.
+- Notebook tương thích tốt với **Google Colab**.
+
+
+
+---
+
+## 🗂️ V. Tập dữ liệu BTXRD
+
+### 📌 Giới thiệu:
+
+- **BTXRD (Bone Tumor X-ray Dataset)** là một tập dữ liệu ảnh X-quang dùng cho bài toán phân đoạn vùng u xương.
+- Dữ liệu bao gồm các ảnh chụp X-quang và các annotation dạng polygon tương ứng với vùng có khối u.
+
+### 📁 Cấu trúc thư mục:
+
+```
+BTXRD/
+├── images/            # Ảnh X-quang (.jpg/.png)
+└── Annotations/       # Annotation dạng polygon (.json)
+```
+
+### 📌 Đặc điểm:
+
+- Mỗi ảnh có một file `.json` chứa thông tin các vùng u dạng polygon.
+- Annotation cần được chuyển đổi sang định dạng mask rồi sang YOLO format để huấn luyện mô hình segmentation.
+- Có thể kết hợp với thư viện `shapely` và `albumentations` để xử lý và augment dữ liệu hiệu quả.
+
+### ⚠️ Lưu ý:
+
+- Ảnh cần resize về kích thước phù hợp (thường là 640x640 hoặc 512x512).
+- Các file annotation phải được đồng bộ chính xác với tên file ảnh.
+
+---
 
