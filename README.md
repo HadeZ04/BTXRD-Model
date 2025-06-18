@@ -1,5 +1,8 @@
 
 # 🦴 YOLOv8 Bone Tumor Segmentation
+## DEMO
+[📺 Xem demo tại đây](https://youtu.be/P6B4BF_lJck)
+
 ## 🗂️ Tập dữ liệu BTXRD
 
 ### 📌 Giới thiệu:
